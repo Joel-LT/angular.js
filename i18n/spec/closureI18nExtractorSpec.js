@@ -148,6 +148,62 @@ describe('extractCurrencySymbols', function() {
       'AOA':[2, 'Kz', 'Kz']
     });
   });
+  
+    it('should extract currency data - sample 1', function() {
+    var CONTENT = [
+      'goog.i18n.currency.CurrencyInfo = {',
+      '  \'GBP\':[2, \'£\', \'GB£\'],',
+      '};',
+      'goog.i18n.currency.CurrencyInfoTier2 = {',
+      '  \'AOA\':[2, \'Kz\', \'Kz\'],',
+      '};'
+    ].join('\n');
+
+    var currencySymbols = extractCurrencySymbols(CONTENT);
+    expect(currencySymbols.GBP).toEqual([2, '£', 'GB£']);
+    expect(currencySymbols.AOA).toEqual([2, 'Kz', 'Kz']);
+    expect(currencySymbols).toEqual({
+      'GBP':[2, '£', 'GB£'],
+      'AOA':[2, 'Kz', 'Kz']
+    });
+  });
+      it('should extract currency data - sample 2', function() {
+    var CONTENT = [
+      'goog.i18n.currency.CurrencyInfo = {',
+      '  \'GBP\':[2, \'£\', \'GB£\'],',
+      '};',
+      'goog.i18n.currency.CurrencyInfoTier2 = {',
+      '  \'AOA\':[2, \'Kz\', \'Kz\'],',
+      '};'
+    ].join('\n');
+
+    var currencySymbols = extractCurrencySymbols(CONTENT);
+    expect(currencySymbols.GBP).toEqual([2, '£', 'GB£']);
+    expect(currencySymbols.AOA).toEqual([2, 'Kz', 'Kz']);
+    expect(currencySymbols).toEqual({
+      'GBP':[2, '£', 'GB£'],
+      'AOA':[2, 'Kz', 'Kz']
+    });
+  });
+  
+      it('should extract currency data - sample 3', function() {
+    var CONTENT = [
+      'goog.i18n.currency.CurrencyInfo = {',
+      '  \'GBP\':[2, \'£\', \'GB£\'],',
+      '};',
+      'goog.i18n.currency.CurrencyInfoTier2 = {',
+      '  \'AOA\':[2, \'Kz\', \'Kz\'],',
+      '};'
+    ].join('\n');
+
+    var currencySymbols = extractCurrencySymbols(CONTENT);
+    expect(currencySymbols.GBP).toEqual([2, '£', 'GB£']);
+    expect(currencySymbols.AOA).toEqual([2, 'Kz', 'Kz']);
+    expect(currencySymbols).toEqual({
+      'GBP':[2, '£', 'GB£'],
+      'AOA':[2, 'Kz', 'Kz']
+    });
+  });
 });
 
 
